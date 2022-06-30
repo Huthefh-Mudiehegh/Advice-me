@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="search_feel_editText_background_color">#f2eeee</color>
+    <color name="main_background_color">#f2f2f2</color>
+    <color name="text_color_onPrimary">#deffffff</color>
+    <color name="text_color_onSecondary">#de000000</color>
+
+
 </resources>

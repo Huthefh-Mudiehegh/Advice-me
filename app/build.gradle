@@ -1,5 +1,7 @@
 plugins {
     id 'com.android.application'
+
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -15,21 +17,33 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    sourceSets {
+        main {
+            res {
+                srcDirs 'src\\main\\res'
+            }
+        }
+    }
+
+
 }
 
 dependencies {
-    def room_version = "2.2.5"
-    def nav_version = "2.3.0-beta01"
+    def room_version = "2.4.2"
+    def nav_version = "2.4.2"
 
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
@@ -49,15 +63,19 @@ dependencies {
     implementation "com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0"
 
     // ViewModel
-    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.4.1'
+
 
     // LiveData
-    implementation 'androidx.lifecycle:lifecycle-livedata:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata:2.4.1'
 
     // Room
+
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
-    implementation "androidx.room:room-rxjava2:$room_version"
+
+    // optional - RxJava3 support for Room
+    implementation "androidx.room:room-rxjava3:$room_version"
 
 
     //sdp
@@ -67,12 +85,9 @@ dependencies {
     //Gson
     implementation 'com.google.code.gson:gson:2.8.9'
 
-
-
-
-
-
-
+    // dagger-Hilt
+    implementation "com.google.dagger:hilt-android:2.38.1"
+    annotationProcessor "com.google.dagger:hilt-compiler:2.38.1"
 
 
 
