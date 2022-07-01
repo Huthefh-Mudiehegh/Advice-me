@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.activity.DisplayAdvice.DisplayAdviceFragment">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_12sdp">
+
+        <TextView
+            android:id="@+id/displayAdvice_advicePosition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:gravity="center"
+            android:paddingStart="@dimen/_12sdp"
+            android:text="2/5"
+
+            />
+
+        <TextView
+            android:id="@+id/displayAdvice_adviceTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/displayAdvice_advicePosition"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:text="حديث شريف"
+
+            />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/displayAdvice_adviceTitle"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_alignParentBottom="true"
+            >
+
+            <TextView
+                android:id="@+id/displayAdvice_adviceContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/displayAdvice_adviceTitle"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginEnd="@dimen/_40sdp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:padding="@dimen/_8sdp"
+                android:text="قال رسول الله صلى الله عليه وسلم :(خيركم من تعلم القرآن وعلمه)" />
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+
+</FrameLayout>

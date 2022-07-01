@@ -15,7 +15,12 @@ import java.util.ArrayList;
 
 public class AdviceAdapter extends RecyclerView.Adapter<AdviceAdapter.AdviceViewHolder> {
 
-    ArrayList<Advice> arrayList = new ArrayList<>();
+    ArrayList<Advice> arrayList;
+    OnAdviceClickListener onAdviceClickListener;
+    public AdviceAdapter(OnAdviceClickListener onAdviceClickListener) {
+        this.arrayList = new ArrayList<>();
+        this.onAdviceClickListener = onAdviceClickListener;
+    }
 
     @NonNull
     @Override
@@ -50,6 +55,12 @@ public class AdviceAdapter extends RecyclerView.Adapter<AdviceAdapter.AdviceView
             super(itemView);
             adviceTitle = itemView.findViewById(R.id.advice_title_TV);
             adviceContent = itemView.findViewById(R.id.advice_content_TV);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onAdviceClickListener.onclick(arrayList.get(getAdapterPosition()),getAdapterPosition());
+                }
+            });
         }
     }
 }
