@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
 
-        app:title="تطبيق إنصحني"
+        app:title="@string/main_actionBar_title"
         app:titleTextColor="@color/white"
         app:titleTextAppearance="@style/TextAppearance.AppCompat.Large"
 
@@ -81,6 +81,7 @@
                     android:id="@+id/main_search_feel_editText_layout"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_36sdp"
+                    android:hint="@string/main_searchYourFeeling_editText"
 
                     android:layout_alignParentTop="true"
                     android:layout_alignParentStart="true"
@@ -93,7 +94,6 @@
                         android:id="@+id/main_search_feel_editText"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="@string/main_searchYourFeeling_editText"
                         android:drawableStart="@drawable/ic_search"
                         android:drawablePadding="@dimen/_15sdp"
 

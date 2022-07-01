@@ -2,6 +2,7 @@ package com.huthfy.packageByLayer.ui.activity.main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -28,6 +29,7 @@ import android.widget.Toast;
 import com.huthfy.packageByLayer.R;
 import com.huthfy.packageByLayer.data.model.Advice;
 import com.huthfy.packageByLayer.data.model.Feel;
+import com.huthfy.packageByLayer.ui.activity.AdviceList.AdviceListActivity;
 import com.huthfy.packageByLayer.ui.activity.Favorite.FavoriteActivity;
 import com.huthfy.packageByLayer.ui.uiState.AdviceUiState;
 import com.huthfy.packageByLayer.ui.uiState.FeelUiState;
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     AdviceViewModel adviceViewModel;
     FeelAdapter feelAdapter;
     private RecyclerView feelRecyclerview;
-
+    private AppCompatButton adviceMeBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,17 +57,39 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(findViewById(R.id.main_tool_bar));
 
         feelRecyclerview = findViewById(R.id.main_feel_recyclerview);
+        adviceMeBtn = findViewById(R.id.main_advice_me_btn);
+
         feelAdapter = new FeelAdapter();
         ArrayList<Feel> feelArrayList = new ArrayList<>();
         feelArrayList.add(new Feel(1,"سعيد"));
-        feelArrayList.add(new Feel(2,"قلق"));
-        feelArrayList.add(new Feel(3,"حزين"));
+        feelArrayList.add(new Feel(1,"سعيد"));
+        feelArrayList.add(new Feel(1,"سعيد"));
+        feelArrayList.add(new Feel(1,"سعيد"));
+        feelArrayList.add(new Feel(1,"سعيد"));
+        feelArrayList.add(new Feel(1,"سعيد"));
+        feelArrayList.add(new Feel(1,"سعيد"));
+        feelArrayList.add(new Feel(1,"سعيد"));
+        feelArrayList.add(new Feel(1,"سعيد"));
+        feelArrayList.add(new Feel(1,"سعيد"));
+        feelArrayList.add(new Feel(1,"سعيد"));
+        feelArrayList.add(new Feel(1,"سعيد"));
+        feelArrayList.add(new Feel(1,"سعيد"));
+        feelArrayList.add(new Feel(1,"سعيد"));
+
         feelAdapter.setArrayList(feelArrayList);
 
         feelRecyclerview.setAdapter(feelAdapter);
         feelRecyclerview.setLayoutManager(new LinearLayoutManager(this));
 
 
+        adviceMeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent adviceListIntent = new Intent(MainActivity.this, AdviceListActivity.class);
+                startActivity(adviceListIntent);
+
+            }
+        });
 
 
 

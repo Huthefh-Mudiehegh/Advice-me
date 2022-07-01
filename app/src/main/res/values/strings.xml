@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">إنصحني</string>
-    <string name="advice_me">إنصحني</string>
-    <string name="main_whatsYourFeeling_textView">ما هو شعورك الآن؟</string>
-    <string name="main_searchYourFeeling_editText">ابحث عن شعورك</string>
+    <string name="app_name">advice me</string>
+    <string name="advice_me">advice me</string>
+    <string name="main_whatsYourFeeling_textView">what\'s your feeling ?</string>
+    <string name="main_searchYourFeeling_editText">search about your feeling</string>
+    <string name="main_actionBar_title">advice me app</string>
+    <string name="adviceList_actionBar_title">advice list</string>
 </resources>

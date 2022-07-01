@@ -7,14 +7,16 @@
         <entry key="..\:/Users/huthfy/AndroidStudioProjects/CleanArchitecture/app/src/main/res/drawable/ic_happy.xml" value="0.27037037037037037" />
         <entry key="..\:/Users/huthfy/AndroidStudioProjects/CleanArchitecture/app/src/main/res/drawable/ic_search.xml" value="0.13333333333333333" />
         <entry key="..\:/Users/huthfy/AndroidStudioProjects/CleanArchitecture/app/src/main/res/drawable/main_advice_me_btn.xml" value="0.27037037037037037" />
+        <entry key="..\:/Users/huthfy/AndroidStudioProjects/CleanArchitecture/app/src/main/res/layout/activity_advice_list.xml" value="0.4" />
         <entry key="..\:/Users/huthfy/AndroidStudioProjects/CleanArchitecture/app/src/main/res/layout/activity_favorite.xml" value="0.1598731884057971" />
-        <entry key="..\:/Users/huthfy/AndroidStudioProjects/CleanArchitecture/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/huthfy/AndroidStudioProjects/CleanArchitecture/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/huthfy/AndroidStudioProjects/CleanArchitecture/app/src/main/res/layout/activity_news.xml" value="0.2128623188405797" />
         <entry key="..\:/Users/huthfy/AndroidStudioProjects/CleanArchitecture/app/src/main/res/layout/activity_search.xml" value="0.13196555217831812" />
-        <entry key="..\:/Users/huthfy/AndroidStudioProjects/CleanArchitecture/app/src/main/res/layout/advice_item.xml" value="0.1598731884057971" />
+        <entry key="..\:/Users/huthfy/AndroidStudioProjects/CleanArchitecture/app/src/main/res/layout/advice_item.xml" value="0.536" />
+        <entry key="..\:/Users/huthfy/AndroidStudioProjects/CleanArchitecture/app/src/main/res/layout/advice_list_item.xml" value="0.4" />
         <entry key="..\:/Users/huthfy/AndroidStudioProjects/CleanArchitecture/app/src/main/res/layout/feels_dropdown_item.xml" value="0.29818181818181816" />
         <entry key="..\:/Users/huthfy/AndroidStudioProjects/CleanArchitecture/app/src/main/res/layout/feels_dropdown_items.xml" value="0.1171875" />
-        <entry key="..\:/Users/huthfy/AndroidStudioProjects/CleanArchitecture/app/src/main/res/layout/feels_item_of_recyclerview.xml" value="0.36444444444444446" />
+        <entry key="..\:/Users/huthfy/AndroidStudioProjects/CleanArchitecture/app/src/main/res/layout/feels_item_of_recyclerview.xml" value="0.2" />
         <entry key="..\:/Users/huthfy/AndroidStudioProjects/CleanArchitecture/app/src/main/res/menu/action_bar_menu.xml" value="0.275" />
       </map>
     </option>
