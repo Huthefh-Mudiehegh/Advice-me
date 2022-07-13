@@ -5,6 +5,5 @@
     <string name="main_searchYourFeeling_editText">search about your feeling</string>
     <string name="main_actionBar_title">advice me app</string>
     <string name="adviceList_actionBar_title">advice list</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="favorite_action_bar">favorite</string>
 </resources>

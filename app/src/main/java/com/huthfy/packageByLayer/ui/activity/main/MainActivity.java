@@ -3,80 +3,63 @@ package com.huthfy.packageByLayer.ui.activity.main;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.huthfy.packageByLayer.R;
-import com.huthfy.packageByLayer.data.model.Advice;
 import com.huthfy.packageByLayer.data.model.Feel;
 import com.huthfy.packageByLayer.ui.activity.AdviceList.AdviceListActivity;
 import com.huthfy.packageByLayer.ui.activity.Favorite.FavoriteActivity;
-import com.huthfy.packageByLayer.ui.uiState.AdviceUiState;
-import com.huthfy.packageByLayer.ui.uiState.FeelUiState;
-import com.huthfy.packageByLayer.ui.viewModel.AdviceViewModel;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements FeelAdapter.OnFeelCLickListener {
     private static final String TAG = "MyTag";
     private static final String FEELS = "MyTag";
-    AdviceViewModel adviceViewModel;
+    int previousFeelPosition = 0;
+    Feel currentFeelSelected;
+
     FeelAdapter feelAdapter;
     private RecyclerView feelRecyclerview;
     private AppCompatButton adviceMeBtn;
+
+    FeelViewModel feelViewModel;
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setSupportActionBar(findViewById(R.id.main_tool_bar));
 
+
         feelRecyclerview = findViewById(R.id.main_feel_recyclerview);
         adviceMeBtn = findViewById(R.id.main_advice_me_btn);
 
-        feelAdapter = new FeelAdapter();
-        ArrayList<Feel> feelArrayList = new ArrayList<>();
-        feelArrayList.add(new Feel(1,"سعيد"));
-        feelArrayList.add(new Feel(1,"سعيد"));
-        feelArrayList.add(new Feel(1,"سعيد"));
-        feelArrayList.add(new Feel(1,"سعيد"));
-        feelArrayList.add(new Feel(1,"سعيد"));
-        feelArrayList.add(new Feel(1,"سعيد"));
-        feelArrayList.add(new Feel(1,"سعيد"));
-        feelArrayList.add(new Feel(1,"سعيد"));
-        feelArrayList.add(new Feel(1,"سعيد"));
-        feelArrayList.add(new Feel(1,"سعيد"));
-        feelArrayList.add(new Feel(1,"سعيد"));
-        feelArrayList.add(new Feel(1,"سعيد"));
-        feelArrayList.add(new Feel(1,"سعيد"));
-        feelArrayList.add(new Feel(1,"سعيد"));
+        feelAdapter = new FeelAdapter(this);
 
-        feelAdapter.setArrayList(feelArrayList);
+        feelViewModel = new ViewModelProvider(this).get(FeelViewModel.class);
+        feelViewModel.getAllFeels();
+        feelViewModel.feelUiStateLiveData.observe(this, new Observer<FeelUiState>() {
+            @Override
+            public void onChanged(FeelUiState feelUiState) {
+                feelAdapter.setArrayList(feelUiState.getFeels());
+            }
+        });
+
 
         feelRecyclerview.setAdapter(feelAdapter);
         feelRecyclerview.setLayoutManager(new LinearLayoutManager(this));
@@ -85,8 +68,13 @@ public class MainActivity extends AppCompatActivity {
         adviceMeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent adviceListIntent = new Intent(MainActivity.this, AdviceListActivity.class);
-                startActivity(adviceListIntent);
+                if (currentFeelSelected != null){
+
+                    Intent adviceListIntent = new Intent(MainActivity.this, AdviceListActivity.class);
+                    adviceListIntent.putExtra("feel",currentFeelSelected);
+                    startActivity(adviceListIntent);
+                }else
+                    Toast.makeText(MainActivity.this, "select your feel first", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -95,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-//        adviceViewModel = new ViewModelProvider(this).get(AdviceViewModel.class);
+//        adviceViewModel = new ViewModelProvider(this).get(AdviceListViewModel.class);
 //
 //        //TODO: observe onChanged method called many times when no data changed.
 //        adviceBtn.setOnClickListener(new View.OnClickListener() {
@@ -119,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
 //        markFavoriteBtn.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
-//                Advice advice = adviceViewModel.adviceUiStateLiveData.getValue().getAdvice();
+//                Advice advice = adviceViewModel.adviceUiStateLiveData.getValue().getAdvices();
 //                //check if the advice is already marked as favorite
 //                if (advice.getIs_favorite() == Advice.FAVORITE) {
 //                    // update the advice with unmarked
@@ -148,17 +136,17 @@ public class MainActivity extends AppCompatActivity {
 //
 //        adviceViewModel.getAllFeels();
 //
-//        adviceViewModel.adviceUiStateLiveData.observe(MainActivity.this, new Observer<AdviceUiState>() {
+//        adviceViewModel.adviceUiStateLiveData.observe(MainActivity.this, new Observer<AdviceListUiState>() {
 //            @Override
-//            public void onChanged(AdviceUiState adviceUiState) {
+//            public void onChanged(AdviceListUiState adviceUiState) {
 //
 //                if (adviceUiState.isSuccessed()) {
-////                    Log.d(TAG, "onChanged: advice:" + adviceUiState.getAdvice().getContent_advice());
+////                    Log.d(TAG, "onChanged: advice:" + adviceUiState.getAdvices().getContent_advice());
 //                    adviceProgressBar.setVisibility(View.GONE);
-//                    adviceTxt.setText(adviceUiState.getAdvice().getContent_advice());
+//                    adviceTxt.setText(adviceUiState.getAdvices().getContent_advice());
 //                    markFavoriteBtn.setVisibility(View.VISIBLE);
 //
-//                    if (adviceUiState.getAdvice().getIs_favorite() == Advice.FAVORITE){
+//                    if (adviceUiState.getAdvices().getIs_favorite() == Advice.FAVORITE){
 //                        markFavoriteBtn.setImageResource(R.drawable.ic_is_favorite);
 //                    }else {
 //                        markFavoriteBtn.setImageResource(R.drawable.ic_not_favorite);
@@ -213,8 +201,34 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.favorite_itemMenu){
             //go to favorite activity
+            Intent intent = new Intent(MainActivity.this, FavoriteActivity.class);
+            startActivity(intent);
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void onFeelClick(Feel feel, int position) {
+        currentFeelSelected = feel;
+        changePositionItemClicked(position);
+    }
+
+    private void changePositionItemClicked(int position) {
+
+        //get the previous selected feel position
+        previousFeelPosition = feelAdapter.getCurrentFeelPosition();
+
+        //check if different feel is clicked
+        if (previousFeelPosition != position) {
+            //change the previous feel style
+            feelAdapter.notifyItemChanged(previousFeelPosition);
+
+            previousFeelPosition = position;
+            feelAdapter.setCurrentFeelPosition(position);
+
+            //change the new feel style
+            feelAdapter.notifyItemChanged(position);
+        }
     }
 }

@@ -28,4 +28,9 @@ public class AdvicePagerAdapter extends FragmentStateAdapter {
     public int getItemCount() {
         return fragments.size();
     }
+
+    public void setFragments(ArrayList<Fragment> fragments) {
+        this.fragments = fragments;
+        notifyDataSetChanged();
+    }
 }

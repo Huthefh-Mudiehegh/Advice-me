@@ -77,40 +77,56 @@
                 android:layout_height="match_parent"
                 android:padding="@dimen/_15sdp"
                 >
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/main_search_feel_editText_layout"
+<!--                <com.google.android.material.textfield.TextInputLayout-->
+<!--                    android:id="@+id/main_search_feel_editText_layout"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/_36sdp"-->
+
+<!--                    android:layout_alignParentTop="true"-->
+
+<!--                    android:layout_alignParentStart="true"-->
+<!--                    android:layout_alignParentEnd="true"-->
+
+<!--                    style="@style/main_search_feel_editText_style">-->
+<!--                    <androidx.appcompat.widget.SearchView-->
+<!--                        android:id="@+id/main_search_feel_editText"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:drawableStart="@drawable/ic_search"-->
+<!--                        android:drawablePadding="@dimen/_15sdp"-->
+<!--                        app:queryHint="@string/main_searchYourFeeling_editText"-->
+<!--                        app:iconifiedByDefault="false"-->
+<!--                        -->
+<!--                        android:paddingStart="@dimen/_21sdp"-->
+<!--                        android:paddingTop="@dimen/_8sdp"-->
+<!--                        android:paddingBottom="@dimen/_8sdp"-->
+<!--                        android:paddingEnd="@dimen/_8sdp"-->
+
+<!--                        />-->
+<!--                </com.google.android.material.textfield.TextInputLayout>-->
+<!--                -->
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/main_search_feel_searchview"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_36sdp"
-                    android:hint="@string/main_searchYourFeeling_editText"
 
+                    app:queryHint="@string/main_searchYourFeeling_editText"
+                    app:iconifiedByDefault="false"
+
+
+                    android:background="@drawable/style_main_search_feel"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
 
-
-
-                    style="@style/main_search_feel_editText_style">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/main_search_feel_editText"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:drawableStart="@drawable/ic_search"
-                        android:drawablePadding="@dimen/_15sdp"
-
-                        android:paddingStart="@dimen/_21sdp"
-                        android:paddingTop="@dimen/_8sdp"
-                        android:paddingBottom="@dimen/_8sdp"
-                        android:paddingEnd="@dimen/_8sdp"
-
-                        />
-                </com.google.android.material.textfield.TextInputLayout>
-
+                    />
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/main_feel_recyclerview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
 
-                    android:layout_below="@+id/main_search_feel_editText_layout"
+                    android:paddingTop="@dimen/_4sdp"
+                    android:layout_below="@id/main_search_feel_searchview"
                     android:layout_alignParentStart="true"
 
                     android:layout_alignParentBottom="true"

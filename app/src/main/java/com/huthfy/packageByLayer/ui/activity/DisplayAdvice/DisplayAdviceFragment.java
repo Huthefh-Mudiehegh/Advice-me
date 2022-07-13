@@ -19,11 +19,13 @@ public class DisplayAdviceFragment extends Fragment {
     private static final String ARG_TITLE = "advice_title";
     private static final String ARG_CONTENT = "advice_content";
     private static final String ARG_POSITION = "advice_position";
+    private static final String ARG_SIZE = "advices_size";
 
 
     private String adviceTitle;
     private String adviceContent;
     private int advicePosition;
+    private int advicesSize;
 
     TextView adviceTitleTV,adviceContentTV,advicePositionTV;
 
@@ -32,12 +34,13 @@ public class DisplayAdviceFragment extends Fragment {
     }
 
 
-    public static DisplayAdviceFragment newInstance(Advice advice, int advicePosition) {
+    public static DisplayAdviceFragment newInstance(Advice advice, int advicePosition,int size) {
         DisplayAdviceFragment fragment = new DisplayAdviceFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_TITLE, advice.getId_advice()+"");
+        args.putString(ARG_TITLE, advice.getTitle_advice());
         args.putString(ARG_CONTENT, advice.getContent_advice());
         args.putInt(ARG_POSITION, advicePosition);
+        args.putInt(ARG_SIZE, size);
         fragment.setArguments(args);
         return fragment;
     }
@@ -49,6 +52,8 @@ public class DisplayAdviceFragment extends Fragment {
             adviceTitle = getArguments().getString(ARG_TITLE);
             adviceContent = getArguments().getString(ARG_CONTENT);
             advicePosition = getArguments().getInt(ARG_POSITION);
+            advicesSize = getArguments().getInt(ARG_SIZE);
+
         }
     }
 
@@ -68,8 +73,8 @@ public class DisplayAdviceFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        adviceTitleTV.setText("حديث شريف");
+        adviceTitleTV.setText(adviceTitle);
         adviceContentTV.setText(adviceContent);
-        advicePositionTV.setText(advicePosition+"/"+"5");
+        advicePositionTV.setText(advicePosition+"/"+advicesSize);
     }
 }
