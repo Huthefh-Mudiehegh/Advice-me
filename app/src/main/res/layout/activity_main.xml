@@ -13,23 +13,22 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
 
-        app:title="@string/main_actionBar_title"
-        app:titleTextColor="@color/white"
-        app:titleTextAppearance="@style/TextAppearance.AppCompat.Large"
-
-        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+
         android:background="@color/purple_500"
-        />
+        app:title="@string/main_actionBar_title"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Large"
+        app:titleTextColor="@color/white" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/main_tool_bar"
         android:layout_marginStart="@dimen/_22sdp"
-        android:layout_marginEnd="@dimen/_22sdp"
         android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_22sdp"
         android:layout_marginBottom="@dimen/_16sdp"
 
 
@@ -60,78 +59,47 @@
             android:id="@+id/main_feels_cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/main_feel_tv"
             android:layout_above="@id/main_advice_me_btn"
+            android:layout_below="@id/main_feel_tv"
 
             android:layout_marginTop="@dimen/_12sdp"
             android:background="@color/white"
-            app:cardCornerRadius="@dimen/_16sdp"
             android:elevation="@dimen/_8sdp"
-
-
-
-            >
+            app:cardCornerRadius="@dimen/_16sdp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="@dimen/_15sdp"
-                >
-<!--                <com.google.android.material.textfield.TextInputLayout-->
-<!--                    android:id="@+id/main_search_feel_editText_layout"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="@dimen/_36sdp"-->
+                android:padding="@dimen/_15sdp">
+                <!--                <androidx.appcompat.widget.SearchView-->
+                <!--                    android:id="@+id/main_search_feel_searchview"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="@dimen/_36sdp"-->
 
-<!--                    android:layout_alignParentTop="true"-->
-
-<!--                    android:layout_alignParentStart="true"-->
-<!--                    android:layout_alignParentEnd="true"-->
-
-<!--                    style="@style/main_search_feel_editText_style">-->
-<!--                    <androidx.appcompat.widget.SearchView-->
-<!--                        android:id="@+id/main_search_feel_editText"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:drawableStart="@drawable/ic_search"-->
-<!--                        android:drawablePadding="@dimen/_15sdp"-->
-<!--                        app:queryHint="@string/main_searchYourFeeling_editText"-->
-<!--                        app:iconifiedByDefault="false"-->
-<!--                        -->
-<!--                        android:paddingStart="@dimen/_21sdp"-->
-<!--                        android:paddingTop="@dimen/_8sdp"-->
-<!--                        android:paddingBottom="@dimen/_8sdp"-->
-<!--                        android:paddingEnd="@dimen/_8sdp"-->
-
-<!--                        />-->
-<!--                </com.google.android.material.textfield.TextInputLayout>-->
-<!--                -->
-                <androidx.appcompat.widget.SearchView
-                    android:id="@+id/main_search_feel_searchview"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_36sdp"
-
-                    app:queryHint="@string/main_searchYourFeeling_editText"
-                    app:iconifiedByDefault="false"
+                <!--                    app:queryHint="@string/main_searchYourFeeling_editText"-->
+                <!--                    app:iconifiedByDefault="false"-->
 
 
-                    android:background="@drawable/style_main_search_feel"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
+                <!--                    android:background="@drawable/style_main_search_feel"-->
+                <!--                    android:layout_alignParentTop="true"-->
+                <!--                    android:layout_alignParentStart="true"-->
+                <!--                    android:layout_alignParentEnd="true"-->
 
-                    />
+                <!--                    />-->
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/main_feel_recyclerview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
 
-                    android:paddingTop="@dimen/_4sdp"
-                    android:layout_below="@id/main_search_feel_searchview"
                     android:layout_alignParentStart="true"
-
+                    android:layout_alignParentTop="true"
                     android:layout_alignParentBottom="true"
 
+                    android:paddingTop="@dimen/_4sdp"
+
                     tools:listitem="@layout/feels_item_of_recyclerview" />
+                <!--                    android:layout_below="@id/main_search_feel_searchview"-->
 
             </RelativeLayout>
 
@@ -150,16 +118,15 @@
             android:background="@drawable/main_advice_me_btn_style"
 
             android:fontFamily="sans-serif-medium"
-            android:textStyle="normal"
-            android:textSize="18sp"
-            android:textColor="@color/text_color_onPrimary"
             android:letterSpacing="0.03"
             android:lineSpacingExtra="6sp"
+            android:text="@string/advice_me"
+            android:textColor="@color/text_color_onPrimary"
+            android:textSize="18sp"
 
-            android:text="@string/advice_me" />
+            android:textStyle="normal" />
 
     </RelativeLayout>
-
 
 
 </RelativeLayout>

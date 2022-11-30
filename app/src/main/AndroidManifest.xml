@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.huthfy.packageByLayer">
-
-    <uses-permission android:name="android.permission.INTERNET" />
+    package="com.huthfy.AdviceMe">
 
     <application
-        android:name=".BaseApplication"
+        android:name="com.huthfy.AdviceMe.BaseApplication"
         android:allowBackup="true"
+        android:fullBackupOnly="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CleanArchitecture">
+        android:theme="@style/Theme.AdviceMe">
         <activity
-            android:name=".ui.activity.DisplayAdvice.DisplayAdviceActivity"
+            android:name="com.huthfy.AdviceMe.ui.activity.displayAdvice.DisplayAdviceActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.activity.AdviceList.AdviceListActivity"
+            android:name="com.huthfy.AdviceMe.ui.activity.adviceList.AdviceUpdateListActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.activity.Favorite.FavoriteActivity"
+            android:name="com.huthfy.AdviceMe.ui.activity.favorite.FavoriteActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.activity.main.MainActivity"
+            android:name="com.huthfy.AdviceMe.ui.activity.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
