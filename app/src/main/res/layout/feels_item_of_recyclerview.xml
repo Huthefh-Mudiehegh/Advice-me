@@ -1,0 +1,58 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_feel_item_cardView"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/_48sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="0dp"
+    >
+
+    <RelativeLayout
+        android:id="@+id/main_feel_relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+        <TextView
+            android:id="@+id/feel_name_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="@dimen/_10sdp"
+
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+
+            android:letterSpacing="0.03"
+
+            android:lineSpacingExtra="8sp"
+            android:maxLines="1"
+            android:text="سعيد"
+            android:textColor="@color/text_color_onSecondary"
+            android:textSize="16sp"
+            android:textStyle="normal"
+
+            />
+
+        <ImageButton
+            android:id="@+id/feel_icon"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+
+            android:layout_marginLeft="@dimen/_5sdp"
+
+            android:backgroundTint="@android:color/transparent"
+            android:clickable="false"
+            android:scaleType="centerCrop" />
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
+
+

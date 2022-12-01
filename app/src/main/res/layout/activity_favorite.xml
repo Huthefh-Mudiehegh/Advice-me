@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.main.MainActivity"
+
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/favorite_tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+
+        app:title="@string/favorite_action_bar"
+        app:titleTextColor="@color/white"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Large"
+
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:background="@color/purple_500"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/favorite_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/favorite_tool_bar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        tools:listitem="@layout/advice_list_item"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        />
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/favorite_noFavorite_LinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/no_favourites_message"
+            android:textSize="@dimen/_26sdp"
+            android:layout_gravity="center"
+            android:gravity="center"
+
+            />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+
+</RelativeLayout>

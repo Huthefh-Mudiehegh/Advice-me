@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">إنصحني</string>
+    <string name="advice_me">إنصحني</string>
+    <string name="main_whatsYourFeeling_textView">ما هو شعورك الآن ؟</string>
+    <string name="main_searchYourFeeling_editText">ابحث عن شعورك</string>
+    <string name="main_actionBar_title">تطبيق إنصحني</string>
+    <string name="adviceList_actionBar_title">قائمة النصائح</string>
+    <string name="favorite_action_bar">المفضلة</string>
+    <string name="no_favourites_message">لا توجد مفضلة!</string>
+    <string name="choose_feel_first">اختر شعورك أولاُ</string>
+    <string name="error_message">حصل خطأ ما</string>
+
+
+</resources>
